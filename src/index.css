@@ -1,0 +1,259 @@
+@import 'tailwindcss';
+@plugin 'lightswind/plugin';
+@theme {
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-fg);
+  --color-primary: var(--primary);
+  --color-primary-foreground: #ffffff;
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-fg);
+  --color-border: var(--border);
+}
+
+@layer base {
+  :root {
+    --bg: #f8fafc;
+    --fg: #0f172a;
+    --card: #ffffff;
+    --card-fg: #0f172a;
+    --primary: #8b5cf6;
+    --muted: #f1f5f9;
+    --muted-fg: #64748b;
+    --border: #e2e8f0;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(0, 0, 0, 0.1);
+  }
+
+  .dark {
+    --bg: #0f1014;
+    --fg: #fafafa;
+    --card: #16171b;
+    --card-fg: #fafafa;
+    --primary: #8b5cf6;
+    --muted: #272832;
+    --muted-fg: #a1a1aa;
+    --border: #272832;
+    --glass-bg: rgba(22, 23, 27, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.05);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    min-height: 100vh;
+  }
+  
+  .dark body {
+    background-image: radial-gradient(circle at top right, rgba(139, 92, 246, 0.15) 0%, transparent 60%), radial-gradient(circle at bottom left, rgba(14, 165, 233, 0.1) 0%, transparent 50%);
+  }
+
+  /* View Transition API overrides for Lightswind ToggleTheme */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+
+  ::selection {
+    background-color: rgba(139, 92, 246, 0.3);
+  }
+}
+
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--fg) 0%, var(--muted-fg) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-primary {
+  background: linear-gradient(135deg, #a78bfa 0%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ==========================================================================
+   Design tokens
+   --------------------------------------------------------------------------
+   One accent colour does all the loud work: --accent (marigold).
+   --signal (jade) is reserved for live status only — availability, "current".
+   To re-skin the whole site, change the six values in each block below.
+   ========================================================================== */
+
+@layer base {
+  :root {
+    --bg:          #f4f6fa;   /* cool paper, not cream */
+    --bg-raised:   #ffffff;
+    --fg:          #0a0f1e;   /* navy-black ink */
+    --fg-soft:     #55607a;
+    --accent:      #b8730a;   /* marigold, darkened for contrast on paper */
+    --accent-flat: #f5a524;   /* the true marigold, for fills and rules */
+    --signal:      #077f5c;
+    --line:        rgba(10, 15, 30, 0.12);
+    --line-soft:   rgba(10, 15, 30, 0.06);
+    --surface:     rgba(255, 255, 255, 0.72);
+    --grid:        rgba(10, 15, 30, 0.045);
+  }
+
+  .dark {
+    --bg:          #0a0f1e;
+    --bg-raised:   #121a2e;
+    --fg:          #eef1f7;
+    --fg-soft:     #8e9ab5;
+    --accent:      #f5a524;
+    --accent-flat: #f5a524;
+    --signal:      #00c48c;
+    --line:        rgba(238, 241, 247, 0.14);
+    --line-soft:   rgba(238, 241, 247, 0.07);
+    --surface:     rgba(18, 26, 46, 0.66);
+    --grid:        rgba(238, 241, 247, 0.04);
+  }
+}
+
+@theme inline {
+  --color-background:  var(--bg);
+  --color-raised:      var(--bg-raised);
+  --color-foreground:  var(--fg);
+  --color-soft:        var(--fg-soft);
+  --color-accent:      var(--accent);
+  --color-accent-flat: var(--accent-flat);
+  --color-signal:      var(--signal);
+  --color-line:        var(--line);
+  --color-line-soft:   var(--line-soft);
+
+  --font-display: "Space Grotesk", "Geist Sans", system-ui, sans-serif;
+  --font-sans: "Geist Sans", system-ui, -apple-system, sans-serif;
+}
+
+/* Aliases kept so the vendored UI components keep resolving. */
+@theme inline {
+  --color-card: var(--bg-raised);
+  --color-card-foreground: var(--fg);
+  --color-primary: var(--accent);
+  --color-primary-foreground: #0a0f1e;
+  --color-muted: var(--bg-raised);
+  --color-muted-foreground: var(--fg-soft);
+  --color-border: var(--line);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    /* Hairline engineering grid — replaces the blurred gradient blobs. */
+   
+    background-size: 72px 72px;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  ::selection {
+    background-color: var(--accent-flat);
+    color: #0a0f1e;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent-flat);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+}
+
+/* ==========================================================================
+   Components
+   ========================================================================== */
+
+/* A panel that reads as a sheet of material, not a floating glass card. */
+.panel {
+  background: var(--surface);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--line);
+}
+
+/* The one recurring structural device: a marigold rule that marks a section. */
+.rule {
+  display: block;
+  width: 2.5rem;
+  height: 3px;
+  background: var(--accent-flat);
+  border-radius: 99px;
+}
+
+/* Film grain. Sits above the grid, below content. Cheap, no image request. */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Underline that draws itself on hover — used on nav and inline links. */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 100%;
+  background: var(--accent-flat);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-underline:hover::after,
+.link-underline[data-active="true"]::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
