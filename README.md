@@ -3,6 +3,8 @@
 Personal portfolio site for a final-year CSE student at BUBT, Dhaka. Single
 page, no backend, no database — it builds to static files you can host anywhere.
 
+Live Link : https://tanvir-mahmud31.netlify.app/
+
 **Stack:** React 19 · TypeScript 5.8 · Vite 7 · Tailwind CSS 4 · Framer Motion · Lenis
 
 ---
