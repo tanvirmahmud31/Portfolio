@@ -19,7 +19,7 @@ const projects: Project[] = [
     built: "The hardest part was getting enrolment state to stay consistent when a course is edited mid-term.",
     stack: ["React", "Node", "Express", "MongoDB", "JWT"],
     code: "https://github.com/tanvirmahmud31/online-learning-platform-server",
-    image: "/public/projects/online-learning.png.png",
+    image: "/projects/online-learning.png",
   },
   {
     title: "ZapShift",
@@ -28,7 +28,7 @@ const projects: Project[] = [
     built: "First time I integrated Stripe and had to think about what happens when a payment succeeds but the write fails.",
     stack: ["React", "Express", "MongoDB", "Stripe", "Leaflet"],
     code: "https://github.com/tanvirmahmud31/Zap-shift-client",
-    image: "/public/projects/zapshift.png.png",
+    image: "/projects/zapshift.png",
   },
   {
     title: "3D Model Viewer",
@@ -36,7 +36,7 @@ const projects: Project[] = [
     built: "Taught me how much of 3D on the web is really just managing the render loop.",
     stack: ["React", "Three.js", "WebGL"],
     code: "https://github.com/tanvirmahmud31/3d-model-client",
-    image: "/public/projects/Screenshot 2026-09-20 213232.png",
+    image: "/projects/3d-model.png",
   },
   {
     title: "Dragon News",
@@ -44,7 +44,7 @@ const projects: Project[] = [
     built: "Where I learned that protected routes are not the same thing as a protected API.",
     stack: ["React", "Firebase", "React Router", "Tailwind"],
     code: "https://github.com/tanvirmahmud31/Dragon-News-Firebase",
-    image: "/public/projects/dragon-news.png.png",
+    image: "/projects/dragon-news.png",
   },
 ];
 

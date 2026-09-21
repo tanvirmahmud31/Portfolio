@@ -90,9 +90,7 @@ export default function Header() {
                 <span className="font-extrabold tracking-tight text-foreground text-sm leading-none group-hover:text-primary transition-colors">
                   Tanvir Mahmud
                 </span>
-                <span className="text-[9px] font-bold text-muted-foreground tracking-widest uppercase mt-0.5">
-                  Portfolio
-                </span>
+                
               </div>
             </a>
 
